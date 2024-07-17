@@ -4,6 +4,10 @@
 
     <%- include('../partials/navigation.ejs') %>
 
+    <% if(true) {%>
+        <%- include('../partials/errors.ejs') %>
+    <% } %>
+
     <div class="row m-5 bg-blue-md text-white" style="max-height: 800px;">
 
         <section class="col-xs-12 col-md-6 p-5 
@@ -12,16 +16,18 @@
     
             <form action="" class="w-100 py-5" method="post">
     
-                <div class="mb-3 bg-light">
-                    <input type="email"    class="w-100 " name="" id="" name="email" placeholder="email">
-                </div>
-    
-                <div class="mb-3 ">
-                    <input type="password" class="w-100" name="password" id="" placeholder="password">
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email"    class="w-100 form-control" name="email" id="emailInput" name="email" placeholder="email">
                 </div>
     
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">
+                    <label for="paswordInput" class="form-label">Pasword</label>
+                    <input type="password" class="w-100 form-control" name="password" id="paswordInput" placeholder="password">
+                </div>
+    
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-50">
                         Sing In
                     </button>
                 </div>

@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/BANCO_FULL_JS', {
-    useNewUrlParser: true
-}).then(db => console.log(`DB is connected`))
-.catch(err => console.error(err));
+const URI = 'mongodb://localhost:27017/jsBank';
+
+mongoose.connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then((db) => {
+    console.log(`DB is connected`);
+
+})
+.catch(err => {
+    console.log('DB is not connected');
+    console.log(err);
+});
+
+module.exports = { mongoose };
