@@ -27,3 +27,18 @@
 .bg-darker{
     background-color: rgb(10, 10, 10);
 }
+.bg-orange-dark{
+    background-color: #ffd912ff;
+}
+.bg-orange-medium{
+    background-color: #ffec88ff;
+}
+.bg-orange-light{
+    background-color: #fff9d8ff;
+}
+.color-blue-d{
+    color: #00267A;
+}
+.color-blue-md{
+    color: #004F9F;
+}

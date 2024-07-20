@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+    <%- include('../partials/head.ejs') %>
+
+    <body class="w-100 h-100 bg-orange-light">
+
+        <%- include('../partials/navAccount.ejs') %>
+
+        <div class="w-100 h-75 m-0 p-0 d-flex flex-wrap justify-content-around align-content-around">
+
+            <h2 class="col-12 text-center p-0 m-0 text-primary h-2">ACCOUNT STATUS</h2>
+            
+            <div class="row w-100 h-75 m-0 p-0 d-flex">
+                <section class="col-xs-12 col-sm-6 p-5 d-flex flex-wrap justify-content-center">
+                    <div class="d-flex flex-wrap justify-content-center align-content-around">
+                        <p class="w-100 text-center fs-5">
+                            Name:
+                            <span><%= name %></span>
+                        </p>
+                        <p class="w-100 text-center fs-5">
+                            Date of birth:
+                            <span><%= dateBirth %></span>
+                        </p>
+                        <p class="w-100 text-center fs-5">
+                            Email:
+                            <span><%= email %></span>
+                        </p>
+                    </div>
+                </section>
+                <section class="col-xs-12 col-sm-6 text-center p-5 d-flex flex-wrap justify-content-center align-content-around">
+                    <div class="d-flex flex-wrap justify-content-center align-content-center">
+                        <p class="w-100 text-center p-0">Money</p>
+                        <h3 class="w-100 text-center">
+                            <span class="h1 fs-1 color-blue-md"><%= money %></span>
+                        </h3>
+                        <p class="w-100 m-0 p-0">bolos</p>
+                    </div>
+                    <div class="w-100">
+                        <a href="/account/transfer" class="btn btn-primary">
+                            Bank transfer
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+
+</html>

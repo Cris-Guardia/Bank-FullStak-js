@@ -1,0 +1,30 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/navAccount.ejs') %>
+
+    <h2>BANK Transfer</h2>
+    <form action="">
+        <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="w-100 form-control" name="nameInput" id="nameInput" placeholder="Name: ">
+        </div>
+
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email"    class="w-100 form-control" name="email" id="emailInput" name="email" placeholder="Email: ">
+        </div>
+        
+        <div class="mb-3 w-100">
+            <label for="inputAmount" class="form-label w-100">
+                Input Amount
+            </label>
+            <input type="number" class="form-control w-100" name="money" id="inputAmount" placeholder="Amount: " value="">
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-50">
+                Pay
+            </button>
+        </div>
+    </form>
+</body>

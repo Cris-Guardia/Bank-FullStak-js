@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
     //MTCH EMAIL'S USER
     const user = await User.findOne({email});
     if(!user){
-        return done(null, false, {error: 'Not user found'})
+        return done(null, false, {message: 'Not user founded'})
     }
     else{
         //MATCH password ussers
@@ -19,7 +19,7 @@ passport.use(new LocalStrategy({
         }
         else{
             console.log('Incorrect Pasword');
-            return done(null, false, {error: 'Incorrect pasword'})
+            return done(null, false, {message: 'Incorrect pasword'})
         }
     }
 }));
@@ -33,3 +33,5 @@ passport.deserializeUser((id, done) =>{
         done(err, user);
     });
 });
+
+module.exports = passport;

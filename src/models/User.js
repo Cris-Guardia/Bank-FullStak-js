@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt  = require('bcryptjs');
+const TransferSchema = require('./Transfer');
 
 const UserSchema = new Schema({
     name: {type: String, required: true},
     dateBirth: {type: Date, required: true},
     email: {type: String, required: true},
     money: {type: Number, required: true},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    transfers: [TransferSchema]
 });
 
 UserSchema.methods.encryptPassword = async (password) => {

@@ -1,19 +1,31 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const passport = require('passport');
-require('./pasport');
+require('./passport');
 
 ///////////////////////////////////////////SING IN
 
 router.get('/users/singin', (req, res)=>{
-    res.render('../views/users/sing_in.ejs');
+    const error = req.query.error || null;
+    res.render('../views/users/sing_in.ejs', { error });
 });
 
-router.post('/users/singin', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/users/singin',
-    failureFlash: true
-})); 
+router.post('/users/singin', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if(err){
+            return next(err);
+        }
+        if(!user){
+            return res.redirect(`/users/singin?error=${info.message}`);
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+            return res.redirect('/account');
+        });
+    })(req, res, next);;
+}); 
 
 /////////////////////////////////////SUCCESS SING IN
 
@@ -85,7 +97,7 @@ router.post('/users/singup', async (req,res)=>{
 });
 
 router.get('/users/logout', (req, res)=>{
-    //req.logOut();
+    req.logOut();
     res.redirect('/');
 });
 

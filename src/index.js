@@ -18,7 +18,7 @@ const passport = require('passport');
 
 const app = express();
 const { mongoose } = require('./database.js');
-require('./routes/pasport.js');
+require('./routes/passport.js');
 
 /////////////////////////       SETTINGS
 
@@ -43,7 +43,7 @@ app.use(passport.session());
 //////////////////////          GLOBAL VARIABLES
 
 app.use((req, res, next) => {
-    res.locals.seccess_msg = req.flash('seccess_msg');
+    res.locals.seccess_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error_msg = req.flash('error');
     next();
