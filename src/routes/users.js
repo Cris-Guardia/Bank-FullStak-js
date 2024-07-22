@@ -15,19 +15,19 @@ router.post('/users/singin', (req, res, next) => {
         if(err){
             return next(err);
         }
-        if(!user){
+        else if(!user){
             return res.redirect(`/users/singin?error=${info.message}`);
         }
         req.logIn(user, (err) => {
             if (err) {
                 return next(err);
             }
-            return res.redirect('/account');
+            else{
+                return res.redirect('/account');
+            }
         });
-    })(req, res, next);;
+    })(req, res, next);
 }); 
-
-/////////////////////////////////////SUCCESS SING IN
 
 //////////////////////////////////////////SING UP
 

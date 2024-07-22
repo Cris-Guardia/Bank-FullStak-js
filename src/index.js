@@ -17,7 +17,7 @@ const passport = require('passport');
 /////////////////////////       INITIALIZE
 
 const app = express();
-const { mongoose } = require('./database.js');
+require('./database.js');
 require('./routes/passport.js');
 
 /////////////////////////       SETTINGS

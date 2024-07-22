@@ -1,12 +1,15 @@
 <%- include('../partials/head.ejs') %>
 <body>
     <%- include('../partials/navAccount.ejs') %>
-
-    <h2>BANK Transfer</h2>
-    <form action="">
+    <% if(error) {%>
+        <%- include('../partials/error.ejs') %>
+    <% } %>
+    <div class="container">
+        <h2>BANK Transfer</h2>
+    <form action="" method="post">
         <div class="mb-3">
-            <label for="nameInput" class="form-label">Name</label>
-            <input type="text" class="w-100 form-control" name="nameInput" id="nameInput" placeholder="Name: ">
+            <label for="nameInput" class="form-label">Reason</label>
+            <input type="text" class="w-100 form-control" name="reason" id="nameInput" placeholder="Reason: ">
         </div>
 
         <div class="mb-3">
@@ -18,7 +21,7 @@
             <label for="inputAmount" class="form-label w-100">
                 Input Amount
             </label>
-            <input type="number" class="form-control w-100" name="money" id="inputAmount" placeholder="Amount: " value="">
+            <input type="number" class="form-control w-100" name="amount" id="inputAmount" placeholder="Amount: " value="">
         </div>
 
         <div class="mb-3">
@@ -27,4 +30,5 @@
             </button>
         </div>
     </form>
+    </div>
 </body>

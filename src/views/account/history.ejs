@@ -3,9 +3,20 @@
 
     <%- include('../partials/navAccount.ejs') %>
 
-    <ul>
-        <li>totona</li>
-        <li>pinga</li>
-    </ul>
-    
+    <div class="container p-5">
+        <ul class="list-group">
+            <% if(transfers && transfers.length > 0) { %>
+                <% transfers.forEach(transfer => { %>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <p><%= transfer.name %></p>
+                        <p><%= transfer.reason %></p>
+                        <p><%= transfer.amount %></p>
+                        <p><%= transfer.date %></p>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li class="bg-primary list-group-item">No transfers founded.</li>
+            <% } %>    
+        </ul>
+    </div>
 </body>
