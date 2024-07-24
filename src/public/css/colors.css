@@ -42,3 +42,9 @@
 .color-blue-md{
     color: #004F9F;
 }
+.bg-lose{
+    background-color: #ffe7e7ff;
+}
+.bg-winned{
+    background-color: #e7ffefff;
+}

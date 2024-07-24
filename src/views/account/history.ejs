@@ -7,11 +7,11 @@
         <ul class="list-group">
             <% if(transfers && transfers.length > 0) { %>
                 <% transfers.forEach(transfer => { %>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <p><%= transfer.name %></p>
-                        <p><%= transfer.reason %></p>
-                        <p><%= transfer.amount %></p>
-                        <p><%= transfer.date %></p>
+                    <li class="list-group-item p-3 d-flex justify-content-between align-items-center <%= transfer.isSended ? 'bg-lose' : 'bg-winned' %>">
+                        <p class="m-0"><%= transfer.name %></p>
+                        <p class="m-0"><%= transfer.reason %></p>
+                        <p class="m-0"><%= transfer.amount %></p>
+                        <p class="m-0"><%= transfer.date.toDateString() %> <%= transfer.date.getHours() %>/<%= transfer.date.getMinutes() %></p>
                     </li>
                 <% }) %>
             <% } else { %>

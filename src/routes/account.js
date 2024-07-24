@@ -25,7 +25,7 @@ const update = async (reason, amount, user, receiver) => {
     let name = receiver.name;
     let isSended = true;
     let date = new Date();
-
+    
     user.money -= amount;  
     receiver.money += amount;  
 
@@ -56,6 +56,7 @@ router.post('/account/transfer', ensureAuthenticated, async (req, res)=>{
     amount = parseFloat(amount);
     const receiver = await User.findOne({ email }).catch();
     console.log(receiver);
+    let error;
 
     if(receiver){
 
@@ -64,19 +65,30 @@ router.post('/account/transfer', ensureAuthenticated, async (req, res)=>{
 
         if((amount <= user.money) && amount > 0){
             
-            update(reason, amount, user, receiver);
+            if(receiver.email != user.email){
+                
+                update(reason, amount, user, receiver);
             
-            console.log("transfer possible ");
-            res.redirect('/account');
+                console.log("transfer possible ");
+                res.redirect('/account');
+                
+            }
+            else{
+                console.log("transfer impossible ")
+                error = 'transfer impossible';
+                res.redirect(`/account/transfer?error=${error}`);
+            }
         }
         else{
-            console.log("transfer impossible ")
-            res.redirect('/account/transfer');
+            console.log("transfer impossible not enougth money")
+            error = 'transfer impossible not enougth money';
+            res.redirect(`/account/transfer?error=${error}`);
         }
     }
     else{
         console.log('reciver doesnt exist');
-        res.redirect('/account/transfer');
+        error = 'reciver doesnt exist';
+        res.redirect(`/account/transfer?error=${error}`);
     }
 });
 
